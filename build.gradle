@@ -19,6 +19,9 @@ plugins {
 //group   'embedded-mas'
 
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
@@ -46,7 +49,7 @@ publishing {
         myLibrary(MavenPublication) {
             groupId = 'javard'
             artifactId = 'javard'
-            version = '0.01-SNAPSHOT'
+            version = '0.014-SNAPSHOT'
             
             from components.java
         }
@@ -59,9 +62,8 @@ publishing {
             //url = "https://maven.pkg.github.com/maiquelb/"
             credentials {
                 username 'maiquelb'
-                password '490217806d5318a219deade93637c77690140f5b'
-                //username = System.getenv("GITHUB_ACTOR")
-        	    //password = System.getenv("GITHUB_TOKEN")
+                password ''
+
             } 
         }
     }
