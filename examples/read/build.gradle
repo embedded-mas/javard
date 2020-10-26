@@ -20,7 +20,24 @@ repositories {
     jcenter()
 }
 
+repositories {
+    // Use jcenter for resolving dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+    
+    maven {
+            name = 'javard_repo'
+            url = "https://maven.pkg.github.com/maiquelb/javard"
+            credentials {
+                username 'maiquelb'
+                password ''
+            } 
+        }
+}
+
 dependencies {
+    implementation "javard:javard:0.024-SNAPSHOT"
+
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
 

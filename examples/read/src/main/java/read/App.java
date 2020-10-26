@@ -3,12 +3,22 @@
  */
 package read;
 
+import arduino.Arduino;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        //System.out.println(new App().getGreeting());
+    	Arduino a = new Arduino("/dev/ttyUSB0", 9600);      
+        a.openConnection();
+        
+        String s = a.serialRead(); //read from serial until getting a linebreak (\n)
+        System.out.println(s);
+        
+        String r = a.serialRead(3); //read a number of bytes set in the parentesis
+        System.out.println(r);
     }
 }
