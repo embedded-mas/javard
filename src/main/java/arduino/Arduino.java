@@ -66,35 +66,34 @@ public class Arduino {
 		return comPort;
 	}
 	
-	
+	/**
+	 * Read from string until get a '\n'
+	 * @return
+	 */
 	public String serialRead(){
-		//will be an infinite loop if incoming data is not bound
 		comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0);
-		String out="";
-		Scanner in = new Scanner(comPort.getInputStream());
-		try
-		{
-		   while(in.hasNext())
-		      out += (in.next()+"\n");
-		   	in.close();
-		} catch (Exception e) { e.printStackTrace(); }
-		return out;
+		byte[] b = new byte[1];
+		String s = "";
+		comPort.readBytes(b, 1);
+		while((char)b[0]!='\n') {
+			s = s + (char)b[0];
+			comPort.readBytes(b, 1);
+		}
+		return s;
 	}
 	
 	public String serialRead(int limit){
 		//in case of unlimited incoming data, set a limit for number of readings
 		comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0);
 		String out="";
-		int count=0;
-		Scanner in = new Scanner(comPort.getInputStream());
-		try
-		{
-		   while(in.hasNext()&&count<=limit){
-		      out += (in.next()+"\n");
-		      count++;
-		   }
-		   	in.close();
-		} catch (Exception e) { e.printStackTrace(); }
+		int count=1;
+		byte[] b = new byte[1];
+		comPort.readBytes(b, 1);
+		while((char)b[0]!='\n'&&count<=limit) {
+			out = out + (char)b[0];
+			comPort.readBytes(b, 1);
+			count++;
+		}
 		return out;
 	}
 	
