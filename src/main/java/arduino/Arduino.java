@@ -8,9 +8,9 @@ import com.fazecast.jSerialComm.*;
 
 
 public class Arduino {
-	private SerialPort comPort;
-	private String portDescription;
-	private int baud_rate;
+	protected SerialPort comPort;
+	protected String portDescription;
+	protected int baud_rate;
 	
 	public Arduino() {
 		//empty constructor if port undecided
