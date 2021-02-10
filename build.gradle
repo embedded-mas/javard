@@ -49,7 +49,7 @@ publishing {
         myLibrary(MavenPublication) {
             groupId = 'javard'
             artifactId = 'javard'
-            version = '0.014-SNAPSHOT'
+            version = '0.027-SNAPSHOT'
             
             from components.java
         }
