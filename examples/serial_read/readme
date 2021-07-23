@@ -4,4 +4,4 @@ To run it:
   (i) upload the arduino files in the arduino folder to an arduino device
   (ii) assign permissions to read/write in the serial folder. In Unix systems, use sudo chmod a+rw /dev/ttyUSB0 (replacing "ttyUSB0" by the proper usb port)
   (iii) set the proper usb port in SerialRead.java
-  (iv) in a terminal, type ./gradlew run <ENTER>
+  (iv) in a terminal, type ./gradlew run <ENTER> (Unix/Linux) or gradlew <ENTER> (Windows)
