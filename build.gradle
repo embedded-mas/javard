@@ -18,6 +18,7 @@ plugins {
 //version '0.023-SNAPSHOT'
 //group   'embedded-mas'
 
+version = '0.034-SNAPSHOT'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -44,27 +45,44 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+
 publishing {
     publications {
-        myLibrary(MavenPublication) {
+        maven(MavenPublication) {
+            from components.java            
             groupId = 'javard'
             artifactId = 'javard'
-            version = '0.027-SNAPSHOT'
             
-            from components.java
+            
         }
     }
+}
 
-    repositories {
-        maven {
-            name = 'myRepo'
-            url = "https://maven.pkg.github.com/maiquelb/javard"
-            //url = "https://maven.pkg.github.com/maiquelb/"
-            credentials {
-                username 'maiquelb'
-                password ''
-
-            } 
-        }
+task publishMavenGitHub(dependsOn: [ 'build', 'publishToMavenLocal']) {
+  doLast {
+    def wdir = System.getProperty("user.home")+'/.m2/repository/javard/javard'
+    def rdir = '../embedded-mas-mvn-repo/'    
+    exec {
+        commandLine 'git', 'pull'
+        workingDir rdir
     }
+   copy {
+        from wdir
+        include project.version+'/**'
+        into rdir+'/javard/javard'         
+    }
+    exec {
+        commandLine 'git', 'add', '*'
+        workingDir rdir
+    }
+    exec {
+        commandLine 'git', 'commit', '-a', '-m', 'javard new version ' + project.version
+        workingDir rdir
+    }
+    exec {
+        commandLine 'git', 'push'
+        workingDir rdir
+    }
+  }
+    
 }
