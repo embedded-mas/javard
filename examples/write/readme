@@ -1,4 +1,4 @@
-This example illustrates writing of a string in a serial port.
+This example illustrates writing of a string in a serial port. The program asks the user to type some string that is expected to be seen in the serial monitor.
 
 To run it:
   (i) upload the arduino files in the arduino folder to an arduino device
