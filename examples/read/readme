@@ -1,0 +1,8 @@
+This example illustrates the reading of a serial port. The arduino program continuosly writes "Hello world" in the serial port. Thus, if everything runs fine, it is expected that [part of] the string "Hello world" be written in the console. 
+
+To run it:
+  (i) upload the arduino files in the arduino folder to an arduino device
+  (ii) assign permissions to read/write in the serial port. In Unix systems, use sudo chmod a+rw /dev/ttyUSB0 (replacing "ttyUSB0" by the proper usb port)
+  (iii) set the proper usb port in SerialRead.java
+  (iv) in a terminal, type ./gradlew run <ENTER> (Unix/Linux) or gradlew <ENTER> (Windows)
+
