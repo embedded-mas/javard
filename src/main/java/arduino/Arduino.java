@@ -97,6 +97,16 @@ public class Arduino {
 		return out;
 	}
 	
+	/**
+	 * Read all the available bytes
+	 */
+	public String serialReadAll(){
+		   int bufferSize = comPort.bytesAvailable();
+		   byte[] readBuffer = new byte[bufferSize];
+		   int numRead = comPort.readBytes(readBuffer, readBuffer.length);
+		   return new String(readBuffer);
+		}
+	
 	public void serialWrite(String s){
 		//writes the entire string at once.
 		comPort.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 0, 0);

@@ -12,13 +12,13 @@
 
 plugins {
     id 'java-library'    
-    id 'maven-publish'
+	id 'maven-publish'
 }
 
 //version '0.023-SNAPSHOT'
 //group   'embedded-mas'
 
-version = '0.034-SNAPSHOT'
+version = '0.035-SNAPSHOT'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
