@@ -12,16 +12,18 @@ public class SerialRead {
     }
 
     public static void main(String[] args) {
+        try {
+           NRJ a = new NRJ("/dev/ttyUSB0", 9600);      
+           a.openConnection();
         
-        NRJ a = new NRJ("/dev/ttyUSB0", 9600);      
-        a.openConnection();
+           String s = a.serialRead(); //read from serial until getting a linebreak (\n)
+           System.out.println(s);
         
-        String s = a.serialRead(); //read from serial until getting a linebreak (\n)
-        System.out.println(s);
-        
-        String r = a.serialRead(3); //read a number of bytes set in the parentesis
-        System.out.println(r);
-        
+           String r = a.serialRead(3); //read a number of bytes set in the parentesis
+           System.out.println(r);
+	} catch (Exception e) {
+			e.printStackTrace();
+		}        
         
     }
 }
