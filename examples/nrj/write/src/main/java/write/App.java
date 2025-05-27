@@ -12,16 +12,17 @@ import arduino.NRJ;
 public class App {
 
 	public static void main(String[] args) {
-		NRJ a = new NRJ("/dev/ttyUSB0", 9600);  //serial port: possibly must be changed in different systems.    
-		a.openConnection();
-
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Type the string to send to the serial: ");
 		try {
+   		   NRJ a = new NRJ("/dev/ttyUSB0", 9600);  //serial port: possibly must be changed in different systems.    
+		   a.openConnection();
+
+		   BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		   System.out.print("Type the string to send to the serial: ");
+		
 			String s = br.readLine();
 			System.out.println("sending " + s + "...");
 			a.serialWrite(s);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
