@@ -18,7 +18,7 @@ plugins {
 //version '0.023-SNAPSHOT'
 //group   'embedded-mas'
 
-version = '0.035-SNAPSHOT'
+version = '0.035-NRJ'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -40,6 +40,8 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.2-jre'
+
+	implementation("com.neuronrobotics:nrjavaserial:5.2.1")
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
