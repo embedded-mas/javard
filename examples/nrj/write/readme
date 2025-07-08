@@ -1,0 +1,9 @@
+This example illustrates writing of a string in a serial port. The program asks the user to type some string that is expected to be seen in the serial monitor.
+
+To run it:
+  (i) upload the arduino files in the arduino folder to an arduino device
+  (ii) assign permissions to read/write in the serial folder. In Unix systems, use sudo chmod a+rw /dev/ttyUSB0 (replacing "ttyUSB0" by the proper usb port)
+  (iii) set the proper usb port in SerialRead.java
+  (iv) in a terminal, type (a) ./gradlew run --console plain (unix-based systems) or (b) gradlew run --console plain (windows)
+  (v) the program asks the user to type some string that is expected to be seen in the serial monitor.
+
