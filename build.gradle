@@ -32,7 +32,7 @@ repositories {
 dependencies {
 
     // https://mvnrepository.com/artifact/com.fazecast/jSerialComm
-    implementation group: 'com.fazecast', name: 'jSerialComm', version: '2.11.0'
+    api group: 'com.fazecast', name: 'jSerialComm', version: '2.11.0'
     
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
@@ -41,7 +41,7 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.2-jre'
 
-	implementation("com.neuronrobotics:nrjavaserial:5.2.1")
+    api "com.neuronrobotics:nrjavaserial:5.2.1"
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
